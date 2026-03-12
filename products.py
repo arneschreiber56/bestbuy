@@ -77,7 +77,7 @@ class Product:
         """
         Print product information including name, price, and quantity.
         """
-        print(f"{self.name}, Price: {self.price}, Quantity: {self.quantity}")
+        print(f"{self.name}, Price: ${self.price}, Quantity: {self.quantity}")
 
     def buy(self, quantity):
         """
