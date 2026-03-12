@@ -95,8 +95,3 @@ class Product:
         else:
             raise Exception("Error while making order! "
                             "Quantity larger than what exists")
-
-
-
-
-

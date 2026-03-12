@@ -59,9 +59,3 @@ class Store:
         for instance, quantity in shopping_list:
             total_price += instance.buy(quantity)
         return total_price
-
-
-
-
-
-

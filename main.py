@@ -3,6 +3,7 @@ main implements the user interface for the best_buy shop instance, executing
 logic as well as the references to the Store and Product classes.
 """
 
+import sys
 from products import Product
 from store import Store
 
@@ -46,7 +47,6 @@ def list_products(shop_instance):
         print(f"{index + 1}. ", end="")
         product.show()
     print("______")
-    return None
 
 
 def show_total_amounts(shop_instance):
@@ -55,7 +55,6 @@ def show_total_amounts(shop_instance):
     """
     total = shop_instance.get_total_quantity()
     print(f"Total of {total} items in store")
-    return None
 
 
 def get_validated_tuple(product_list, selected_product, selected_quantity):
@@ -78,7 +77,7 @@ def get_validated_tuple(product_list, selected_product, selected_quantity):
     selected_quantity_int = int(selected_quantity)
 
     # product number must be existing list index
-    if not (0 < selected_product_int <= (len(product_list))):
+    if not 0 < selected_product_int <= (len(product_list)):
         return None
     # quantity must be positive
     if selected_quantity_int <= 0:
@@ -118,8 +117,6 @@ def make_order(shop_instance):
         for index, quantity in selection:
             shopping_basket.append((product_list[index], quantity))
         return shop_instance.order(shopping_basket)
-    else:
-        return None
 
 
 def print_result(result):
@@ -135,7 +132,7 @@ def quit_programm(_):
     """
     Exit the program immediately.
     """
-    exit()
+    sys.exit()
 
 
 def define_product_list():
@@ -169,8 +166,8 @@ def main():
             try:
                 result = call_dispatcher(choice)(best_buy)
                 print_result(result)
-            except Exception as e:
-                print(e)
+            except Exception as error:
+                print(error)
         else:
             print("Error with choice, try again!")
 
